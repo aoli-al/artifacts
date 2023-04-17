@@ -28,8 +28,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-              <artifactId>maven-assembly-plugin</artifactId>
+            <plugin> <artifactId>maven-assembly-plugin</artifactId>
               <version>3.5.0</version>
               <executions>
                 <execution>
@@ -43,23 +42,12 @@
                 <descriptorRefs>
                   <descriptorRef>jar-with-dependencies</descriptorRef>
                 </descriptorRefs>
-                <archive>
-                  <manifest>
-                    <addClasspath>true</addClasspath>
-                    <classpathPrefix>lib/</classpathPrefix>
-                  </manifest>
-                </archive>
                 <finalName>chocopy-artifacts-2.2</finalName>
                 <appendAssemblyId>false</appendAssemblyId>
               </configuration>
             </plugin>
         </plugins>
     </build>
-    <repositories>
-      <repository> <id>chocopy</id>
-        <url>file://${basedir}/</url>
-      </repository>
-    </repositories>
     <dependencies>
         <dependency>
             <groupId>chocopy</groupId>
@@ -67,4 +55,11 @@
             <version>2.2</version>
         </dependency>
     </dependencies>
+    <distributionManagement>
+       <repository>
+         <id>chocopy-artifacts</id>
+         <name>ChocoPy Artifacts</name>
+         <url>https://maven.pkg.github.com/chocopy/artifacts</url>
+       </repository>
+    </distributionManagement>
 </project>
